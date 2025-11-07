@@ -12,7 +12,7 @@ https://www.tooplate.com/view/2135-mini-finance
 :root {
   --white-color:                  #ffffff;
   --primary-color:                #2d333b;
-  --secondary-color:              #F1FAEE;
+  --secondary-color:              #f5a2d0;
   --section-bg-color:             #ececec;
   --primary-bg-color:             #E63946;
   --custom-btn-bg-color:          #A8DADC;
@@ -69,12 +69,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Courier New', Courier, monospace;
   font-weight: var(--font-weight-bold);
 }
 
 h1 {
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: var(--h1-font-size);
+  letter-spacing: -3px;
 }
 
 h2 {
@@ -349,7 +350,7 @@ strong {
 -----------------------------------------*/
 .custom-btn {
   background: var(--custom-btn-bg-color);
-  border: 2px solid transparent;
+  border: px solid transparent;
   border-radius: var(--border-radius-large);
   color: var(--white-color);
   font-size: var(--btn-font-size);
@@ -357,6 +358,25 @@ strong {
   line-height: normal;
   transition: all 0.3s;
   padding: 10px 20px;
+}
+
+.custom-btn-news{
+  background: rgba(255, 255, 255, 0.459);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-small);
+  color: var(--black-color);
+  font-size: var(--btn-font-size);
+  font-weight: var(--font-weight-bold);
+  line-height: normal;
+  transition: all 0.3s;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  margin-left: 20px
+}
+
+.custom-btn-news:hover {
+  background: orange;
+  color: var(--black-color);
 }
 
 .custom-btn:hover {
@@ -587,6 +607,23 @@ strong {
   overflow: hidden;
   margin-bottom: 24px;
   padding: 30px;
+  
+}
+
+.custom-block-update-news {
+  background: #ff8787;
+  background: linear-gradient(90deg,rgba(255, 135, 135, 1) 29%, rgb(255, 191, 71) 100%);
+  border-radius: var(--border-radius-small);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px; 
+}
+
+.news-update{
+  font-size: 100px;
+  font-weight: 1000;
+  color: var(--white-color);
+  text-align: center;
 }
 
 .custom-block h2,
@@ -598,7 +635,7 @@ strong {
 .custom-block-balance::before {
   content: "";
   background: var(--custom-btn-bg-color);
-  background: #ff0000;
+  background: #ff000000;
   border-radius: 100%;
   width: 200px;
   height: 200px;
@@ -611,7 +648,7 @@ strong {
 .custom-block-balance::after {
   content: "";
   background: var(--primary-color);
-  background: #ffa500;
+  background: #ffa60000;
   border-radius: 100%;
   width: 180px;
   height: 180px;
@@ -916,11 +953,12 @@ strong {
   CUSTOM FORM               
 -----------------------------------------*/
 .custom-form .form-control {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px;
   color: var(--p-color);
-  border-radius: var(--border-radius-large);
-  font-size: var(--menu-font-size);
-  margin-bottom: 24px;
-  padding: 10px 20px;
+  background: #d6d6d6a4;
+  border-radius: var(--border-radius-small);
+  padding: 5px 20px;
   outline: none;
   transition: all 0.3s;
 }
