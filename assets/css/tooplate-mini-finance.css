@@ -133,7 +133,7 @@ a {
 }
 
 a:hover {
-  color: var(--link-hover-color);
+  color: var(--sidebar-title-color);
 }
 
 b,
@@ -1111,6 +1111,16 @@ i{
   background: var(--custom-btn-bg-color);
   border-color: transparent;
 }
+
+#sidebarMenu .header-form {
+    display: none;
+}
+
+#sidebarMenu #navbarLightDropdownMenuLink{
+    display: none;
+}
+
+
 /*---------------------------------------
   News Text Effects
 -----------------------------------------*/
@@ -1143,6 +1153,13 @@ i{
     font-size: 62px;
   }
 
+  #sidebarMenu .header-form {
+    display: none;
+  }
+
+  #sidebarMenu #navbarLightDropdownMenuLink{
+    display: none;
+  }
   
 }
 
@@ -1170,6 +1187,23 @@ i{
   h6 {
     font-size: 18px;
   }
+
+  .navbar .header-form {
+    
+  }
+
+  #navbarLightDropdownMenuLink{
+    
+  }
+
+  #sidebarMenu .header-form {
+    display: none;
+  }
+
+  #sidebarMenu #navbarLightDropdownMenuLink{
+    display: none;
+  }
+  
 }
 
 
@@ -1183,17 +1217,32 @@ i{
     height: calc(100vh - 117px);
   }
 
-  .navbar .header-form {
-    width: 100%;
-    margin: 10px;
-  }
-
   .navbar .nav-link {
     padding-top: 7px;
   }
 
   .navbar-nav .dropdown:last-child {
     margin-right: 50px;
+  }
+
+  .custom-form .form-control{
+    width: 100%;
+  }
+
+  .navbar .header-form {
+    display: none;
+  }
+
+  #navbarLightDropdownMenuLink{
+    display: none;
+  }
+
+  #sidebarMenu .header-form {
+    display: contents;
+  }
+
+  #sidebarMenu #navbarLightDropdownMenuLink{
+    display: contents;
   }
 }
 
@@ -1216,6 +1265,22 @@ i{
 
   .dropdown, .dropdown-center, .dropend, .dropstart, .dropup, .dropup-center {
     position: inherit;
+  }
+
+  .navbar .header-form {
+    display: none;
+  }
+
+  #navbarLightDropdownMenuLink{
+    display: none;
+  }
+
+  #sidebarMenu .header-form {
+    display: contents;
+  }
+
+  #sidebarMenu #navbarLightDropdownMenuLink{
+    display: contents;
   }
 }
 
@@ -1319,6 +1384,22 @@ i{
 
   .profile-rounded-icon {
     font-size: var(--h6-font-size);
+  }
+
+  .navbar .header-form {
+    display: none;
+  }
+
+  #navbarLightDropdownMenuLink{
+    display: none;
+  }
+
+  #sidebarMenu .header-form {
+    display: contents;
+  }
+
+  #sidebarMenu #navbarLightDropdownMenuLink{
+    display: contents;
   }
 }
 
