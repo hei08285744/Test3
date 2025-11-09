@@ -721,6 +721,15 @@ i{
   padding: 30px;
 }
 
+.custom-block-business {
+  background: rgba(128, 128, 128, 0.233);
+  border-radius: var(--border-radius-small);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 24px;
+  padding: 30px;
+}
+
 .custom-block-update-news {
   background: #ff8787;
   background: linear-gradient(90deg,rgba(255, 135, 135, 1) 29%, rgb(255, 191, 71) 100%);
@@ -949,6 +958,48 @@ i{
   margin-right: 10px;
 }
 
+.facility-list li {
+	list-style-type: none;
+	padding-bottom: -50px;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.facility-list__item {
+	display: flex;
+	align-items: center;
+}
+
+.facility-list__item p {
+	font-weight: 600;
+	letter-spacing: .5px;
+}
+
+.icon-circle {
+	height: 50px;
+	width: 50px;
+	background-color: #11466b00;
+	border-radius: 50%;
+
+	margin-right: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.icon-circle i {
+	font-size: 25px;
+	color: #fff;
+}
+
+.user-message{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 20px;
+  color: #000000;
+}
+
+
+
 
 /*---------------------------------------
   SEARCH, PROFILE FORM               
@@ -1112,6 +1163,10 @@ i{
   border-color: transparent;
 }
 
+#navbarLightDropdownMenuLink{
+  top: 5px;
+}
+
 #sidebarMenu .header-form {
     display: none;
 }
@@ -1234,7 +1289,8 @@ i{
   }
 
   #navbarLightDropdownMenuLink{
-    display: none;
+    top: 5px;
+    right: -10px;
   }
 
   #sidebarMenu .header-form {
@@ -1242,7 +1298,7 @@ i{
   }
 
   #sidebarMenu #navbarLightDropdownMenuLink{
-    display: contents;
+    display: none;
   }
 }
 
@@ -1272,7 +1328,8 @@ i{
   }
 
   #navbarLightDropdownMenuLink{
-    display: none;
+    top: 5px;
+    right: -10px;
   }
 
   #sidebarMenu .header-form {
@@ -1280,7 +1337,7 @@ i{
   }
 
   #sidebarMenu #navbarLightDropdownMenuLink{
-    display: contents;
+    display: none;
   }
 }
 
@@ -1391,7 +1448,8 @@ i{
   }
 
   #navbarLightDropdownMenuLink{
-    display: none;
+    top: 5px;
+    right: -10px;
   }
 
   #sidebarMenu .header-form {
@@ -1399,7 +1457,7 @@ i{
   }
 
   #sidebarMenu #navbarLightDropdownMenuLink{
-    display: contents;
+    display: none;
   }
 }
 
