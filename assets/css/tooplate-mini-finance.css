@@ -11,19 +11,29 @@ https://www.tooplate.com/view/2135-mini-finance
 -----------------------------------------*/
 :root {
   --white-color:                  #ffffff;
-  --primary-color:                #2d333b;
+  --navbar-color:                 #ffffff;
+  --sidebar-color:                #ffffff;
+  --sidebar-title-color:          #000000;
+  --nav-link-color:               #0000005b;
+  --logotext-color:               #000000;
+  --bodybackgroundcolor-color:    #ffffff;
+  --search-bar-color:             #d6d6d6a4;
+  --main-wrapper-color:           #ffffff;
+  --primary-color:                #677788;
   --secondary-color:              #f5a2d0;
   --section-bg-color:             #ececec;
   --primary-bg-color:             #E63946;
   --custom-btn-bg-color:          #A8DADC;
-  --custom-btn-bg-hover-color:    #2d333b;
-  --heading-color:                #2d333b;
+  --custom-btn-bg-hover-color:    #282a2c;
+  --heading-color:                #282a2c;
   --dark-color:                   #000000;
   --p-color:                      #10101170;
   --border-color:                 #000000;
-  --link-hover-color:             #2d333b;
+  --link-hover-color:             #282a2c;
+
 
   --body-font-family:             'Unbounded';
+  --logo-image:                    url("/assets/imgs/logo-4.png");
 
   --h1-font-size:                 74px;
   --h2-font-size:                 46px;
@@ -46,7 +56,7 @@ https://www.tooplate.com/view/2135-mini-finance
 }
 
 body {
-  background-color: var(--white-color);
+  background-color: var(--bodybackgroundcolor-color);
   font-family: var(--body-font-family); 
 }
 
@@ -131,13 +141,19 @@ strong {
   font-weight: var(--font-weight-bold);
 }
 
+i{
+  color: #00000093;
+}
+
 
 /*---------------------------------------
   SECTION               
 -----------------------------------------*/
 .main-wrapper {
-  background: var(--section-bg-color);
+  background: var(--white-color);
   min-height: calc(100vh - 65px);
+  border-radius: var(--border-radius-medium);
+  border-color: #000000;
 }
 
 .section-padding {
@@ -146,7 +162,7 @@ strong {
 
 .title-group small {
   font-weight: var(--font-weight-light);
-
+  
 }
 
 .custom-block.section-bg,
@@ -192,7 +208,7 @@ strong {
   border-top: 0;
   border-right: 0;
   border-left: 0;
-  color: var(--p-color);
+  color: var(--nav-link-color);
   font-size: var(--menu-font-size);
   font-weight: var(--font-weight-normal);
   padding: 15px 25px;
@@ -207,15 +223,82 @@ strong {
   color: var(--primary-color);
 }
 
+.nav-link-button {
+  border-radius: 0;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  color: var(--p-color);
+  font-size: var(--menu-font-size);
+  font-weight: var(--font-weight-normal);
+  padding: 15px 20px;
+  transition: all 0.3s;
+  
+}
+
+.nav-tabs .nav-item.show .nav-link-button, 
+.nav-tabs .nav-link-button.active,
+.nav-tabs .nav-link-button:focus, 
+.nav-tabs .nav-link-button:hover {
+  border-bottom-color: var(--primary-color);
+  color: var(--primary-color);
+  
+}
+
+
+
+.categories-title{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: var(--sidebar-title-color);
+}
+
+/*---------------------------------------
+  theme toggle button           
+-----------------------------------------*/
+.nav-link-toggle{
+  background-color: #04aa6d00;
+  border: none;
+  display: inline-block;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  
+}
+
+/*---------------------------------------
+  dark mode    
+-----------------------------------------*/
+
+.dark-mode {
+    --navbar-color: #25282a;
+    --logotext-color: #ffffff;
+    --sidebar-color: #25282a;
+    --sidebar-title-color: #ffffff;
+    --nav-link-color:  #ffffff7a;
+    --bodybackgroundcolor-color: #25282a;
+    --search-bar-color: #30363a;
+    --text-color: #e0e0e0; /* Dark mode text: light grey */
+    --header-bg: #333333; /* Dark mode header: medium-dark grey */
+    --bs-border-width: 0px;
+
+    .logo-image{
+      filter: invert(0%);
+    }
+
+    i{
+      color: #ffffff93;
+      
+    }
+}
 
 /*---------------------------------------
   PROFILE IMAGE              
 -----------------------------------------*/
 .profile-image {
-  border-radius: var(--border-radius-small);
-  width: 32px;
-  height: 32px;
-  object-fit: cover;
+  border-radius: var(--border-radius-large);
+  width: 50px;
+  height: 50px;
+  object-fit:fill;
 }
 
 .custom-block-profile-image-wrap {
@@ -349,9 +432,9 @@ strong {
   CUSTOM BUTTON               
 -----------------------------------------*/
 .custom-btn {
-  background: var(--custom-btn-bg-color);
+  background: rgb(56, 56, 56);
   border: px solid transparent;
-  border-radius: var(--border-radius-large);
+  border-radius: var(--border-radius-small);
   color: var(--white-color);
   font-size: var(--btn-font-size);
   font-weight: var(--font-weight-bold);
@@ -362,15 +445,16 @@ strong {
 
 .custom-btn-news{
   background: rgba(255, 255, 255, 0.459);
-  border: 1px solid transparent;
+  border: 0.1px solid transparent;
   border-radius: var(--border-radius-small);
   color: var(--black-color);
-  font-size: var(--btn-font-size);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 15px;
   font-weight: var(--font-weight-bold);
   line-height: normal;
   transition: all 0.3s;
   padding: 10px 20px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   margin-left: 20px
 }
 
@@ -399,18 +483,32 @@ strong {
   font-style: italic;
 }
 
+.wave-text span {
+        display: inline-block;
+        animation: wave 2s ease-in-out infinite;
+    }
+
+    .wave-text span:nth-child(1) { animation-delay: 0s; }
+    .wave-text span:nth-child(2) { animation-delay: 0.2s; }
+    /* ... and so on for each letter */
+
+    @keyframes wave {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); } /* Adjust for desired wave height */
+    }
+
 
 /*---------------------------------------
   NAVIGATION              
 -----------------------------------------*/
 .sidebar {
-  background: var(--white-color);
+  background: var(--sidebar-color);
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   z-index: 100;
-  padding: 58px 0 0;
+  padding: 70px 15px 0;
 }
 
 .sidebar-sticky {
@@ -425,28 +523,34 @@ strong {
   font-size: var(--h5-font-size);
   font-weight: 700;
   position: fixed;
-  top: 17px;
+  top: 22px;
   letter-spacing: -1px;
+  color: var(--logotext-color);
+  display: inline-block;
+  
 }
 
 .logo-image {
   width: 60px;
   height: 60px;
+  filter: invert(100%);
 }
 
 .navbar {
-  background: var(--white-color);
-  border-bottom: 2px solid var(--border-color);
+  background: var(--navbar-color);
+  /*border-bottom: 2px solid var(--border-color);
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 5px;*/
+  
 }
 
 .navbar .nav-link {
   position: relative;
+  
 }
 
 .navbar .header-form {
-  width: 35%;
+  width: 25%;
 }
 
 .navbar .header-form .form-control {
@@ -465,7 +569,7 @@ strong {
 }
 
 .dropdown-toggle {
-  width: 32px;
+  width: 50px;
 }
 
 .dropdown-toggle .start-100 {
@@ -503,24 +607,32 @@ strong {
 }
 
 #sidebarMenu .nav {
-  flex-wrap: inherit;
+  flex-wrap:inherit;
+  width: 300px;
 }
 
 #sidebarMenu .nav-link {
   border-radius: var(--border-radius-small);
-  color: var(--p-color);
+  color: var(--nav-link-color);
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: var(--menu-font-size);
   display:inline-block;
   position: relative;
   margin-top: 20px;
+  
 }
 
 #sidebarMenu .nav-link.active, 
 #sidebarMenu .nav-link:hover {
   background: var(--primary-color);
   color: var(--white-color);
+
+  i{
+    color: #ffffff;
+  }
 }
+
+
 
 .navbar-toggler {
   background: var(--primary-color);
@@ -533,7 +645,7 @@ strong {
   border: 0;
   padding: 0;
   cursor: pointer;
-  margin: 10px;
+  margin: 20px;
   width: 40px;
   height: 40px;
   outline: none;
@@ -607,7 +719,6 @@ strong {
   overflow: hidden;
   margin-bottom: 24px;
   padding: 30px;
-  
 }
 
 .custom-block-update-news {
@@ -620,10 +731,12 @@ strong {
 }
 
 .news-update{
-  font-size: 100px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 150px;
   font-weight: 1000;
   color: var(--white-color);
   text-align: center;
+  line-height: 1;
 }
 
 .custom-block h2,
@@ -955,9 +1068,10 @@ strong {
 .custom-form .form-control {
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 15px;
-  color: var(--p-color);
-  background: #d6d6d6a4;
+  color: var(--nav-link-color);
+  background: var(--search-bar-color);
   border-radius: var(--border-radius-small);
+  border-color: #25282a00;
   padding: 5px 20px;
   outline: none;
   transition: all 0.3s;
@@ -974,7 +1088,7 @@ strong {
 
 .custom-form .form-control:hover,
 .custom-form .form-control:focus {
-  background: var(--section-bg-color);
+  background: var(--navbar-color);
   border-color: transparent;
 }
 
@@ -997,6 +1111,15 @@ strong {
   background: var(--custom-btn-bg-color);
   border-color: transparent;
 }
+/*---------------------------------------
+  News Text Effects
+-----------------------------------------*/
+
+
+/*---------------------------------------
+  News Text Effects
+-----------------------------------------*/
+
 
 
 /*---------------------------------------
@@ -1019,6 +1142,8 @@ strong {
   h1 {
     font-size: 62px;
   }
+
+  
 }
 
 @media screen and (max-width: 991px) {
