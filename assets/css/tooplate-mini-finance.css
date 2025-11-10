@@ -766,7 +766,7 @@ i{
   flex-direction: column;
   gap: 20px;
   background-color: #f1f2f200;
-  height: 60vh;
+  height: calc(100vh - 300px); 
 }
 
 .team {
