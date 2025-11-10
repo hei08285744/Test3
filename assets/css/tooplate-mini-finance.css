@@ -158,7 +158,7 @@ i{
   /*min-height: calc(100vh - 65px);*/
   border-radius: var(--border-radius-medium);
   border-color: #000000;
-  max-height: 470px;
+  max-height: calc(100vh - 120px); 
   overflow: hidden;
 }
 
