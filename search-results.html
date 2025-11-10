@@ -1,0 +1,19 @@
+<label for="search-input-results">Search Results for:</label>
+<input type="search" id="search-input-results" name="q">
+
+<script>
+    // Get the query string from the current URL
+    const queryString = window.location.search;
+    // Create a URLSearchParams object to easily access parameters
+    const urlParams = new URLSearchParams(queryString);
+    // Get the value of the 'q' parameter
+    const searchQuery = urlParams.get('q');
+
+    // Find the input field on this page
+    const searchInput = document.getElementById('search-input-results');
+    
+    // If a search query was found in the URL, set the input field's value
+    if (searchQuery) {
+        searchInput.value = searchQuery;
+    }
+</script>

@@ -31,9 +31,12 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!--Search Bar-->
-                <form class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" action="#" method="get" role="form">
-                    <input class="form-control" name="search" type="text" placeholder="Search Knots..." aria-label="Search">
+                 <!--Search Bar-->
+                <form action="search-results.html" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" method="get">
+                    <div class="form-control">
+                        <label for="search-term"><i class="ti ti-search"></i></label>                  
+                        <input class="search-bar" id="search-input" name="q" type="search" placeholder="Search Knots..." aria-label="Search">             
+                    </div>                             
                 </form>
 
             <div class="navbar-nav me-lg-2">
@@ -290,19 +293,29 @@
                                             <span class="visually-hidden">New alerts</span>
                                         </span>
                                 </a>                                
-                            </li>                
+                            </li> 
+                            <br><br>               
                         </ul>
                     </div>
                 </nav>
 
-                <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start border-top border-right border-bottom">
-                    <div class="title-group mb-3">
-                        <h1 class="h7 mb-0">Dashboard</b></h1>
-
-                        <!--<small class="text-muted">Hello Thomas, welcome back!</small>-->
-                    </div>
+                <main class="main-wrapper col-md-9 ms-sm-auto py-0 col-lg-9 px-md-4 border-start border-top border-right border-bottom border-end">
 
                     <div class="row my-4">
+                        <div class="title-group mb-3">
+                            <h1 class="h7 mb-0">Dashboard</h1>
+                            <!--<small class="text-muted">Hello Thomas, welcome back!</small>-->
+                        </div>
+
+                        <div class="col-lg-7 col-12">
+                            <div class="custom-block-badges"> 
+                                <h5 class="mb-4">Badges</h5>
+                                <div class="container-badges">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="col-lg-7 col-12">
                             <div class="custom-block-update-news custom-block-balance">
                                 <div class="news-update">NEWS UPDATE</div>
@@ -485,6 +498,9 @@
                                 </div>
                             </div>
                         </div>
+
+                        
+                        
 
                         <div class="col-lg-5 col-12">
                             <div class="custom-block custom-block-profile-front custom-block-profile text-center bg-white">
@@ -773,6 +789,18 @@
                 setTheme(!body.classList.contains('dark-mode'));
             });
 
+        </script>
+        <script>
+            // search-results.html
+            window.onload = function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const searchTerm = urlParams.get('query'); // 'query' is the name of your input field
+
+                if (searchTerm) {
+                    document.getElementById('displaySearchTerm').innerText = `You searched for: ${searchTerm}`;
+                    // Further logic to display search results based on 'searchTerm'
+                }
+            };
         </script>
 
     </body>
