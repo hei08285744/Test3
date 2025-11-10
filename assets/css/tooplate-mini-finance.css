@@ -53,11 +53,14 @@ https://www.tooplate.com/view/2135-mini-finance
   --font-weight-light:            300;
   --font-weight-normal:           400;
   --font-weight-bold:             700;
+
+  --team-height:                  60px;
+  --team-spacing:                 10px;
 }
 
 body {
   background-color: var(--bodybackgroundcolor-color);
-  font-family: var(--body-font-family); 
+  font-family: var(--body-font-family);
 }
 
 
@@ -101,6 +104,7 @@ h4 {
 }
 
 h5 {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: var(--h5-font-size);
 }
 
@@ -151,9 +155,17 @@ i{
 -----------------------------------------*/
 .main-wrapper {
   background: var(--white-color);
-  min-height: calc(100vh - 65px);
+  /*min-height: calc(100vh - 65px);*/
   border-radius: var(--border-radius-medium);
   border-color: #000000;
+  max-height: 470px;
+  overflow: hidden;
+}
+
+.row{
+   height: 100%;
+   overflow-y: auto;
+   scrollbar-width: none;
 }
 
 .section-padding {
@@ -515,6 +527,7 @@ i{
   height: calc(100vh - 58px);
   overflow-x: hidden;
   overflow-y: auto;
+  scrollbar-width: none;
   position: relative;
 }
 
@@ -551,6 +564,8 @@ i{
 
 .navbar .header-form {
   width: 25%;
+  display: flex;
+  align-items: center;
 }
 
 .navbar .header-form .form-control {
@@ -728,6 +743,111 @@ i{
   overflow: hidden;
   margin-bottom: 24px;
   padding: 30px;
+}
+
+.custom-block-badges {
+  background: rgba(128, 128, 128, 0.233);
+  border-radius: var(--border-radius-small);
+  position: relative;
+  overflow: hidden;
+  /* Consolidated margins: 50px top, auto left/right, 24px bottom */
+  display: flex;             /* Use Flexbox on the parent */
+  flex-direction: column; 
+  margin: 0px auto 24px auto; 
+  padding: 30px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.container-badges{
+  padding: 10px; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #f1f2f200;
+  height: 60vh;
+}
+
+.team {
+    position: absolute;
+    margin-top: 80px;
+    width: 90%;
+    height: var(--team-height);
+    background: var(--color);
+    box-shadow: 0 3px 5px #0000001f;
+    left: 50%;
+    transform: translateX(-50%);
+    /* This positioning relies on the --i CSS variable set in JavaScript */
+    top: calc(var(--i) * (var(--team-height) + var(--team-spacing))); 
+    display: flex;
+    align-items: center;
+    transition-property: top;
+    transition-duration: 500ms;
+    border-radius: 10px;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+}
+
+.name {
+    /* Removed width: 80% to allow space for other elements to sit to the right */
+    flex-grow: 1; /* Allows the name to take up available space */
+    height: 80%;
+    display: flex;
+    align-items: center;
+    margin: 0px 20px; /* Adjusted margins slightly */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+/* This container wraps the badge image and the score text */
+.rank-item-container {
+    /* KEY: This makes the container the positioning reference point for children */
+    position: relative; 
+    /* The container should fit the size of the badge image */
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 100%; /* Match the height of the parent .team box */
+    margin-right: 10px; /* Add some spacing from the right edge */
+}
+
+.score {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 600;
+
+    /*CRUCIAL ADDITIONS FOR OVERLAYING*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the text perfectly over the image */
+    
+    /* Optional: Add a subtle shadow for readability */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+
+/* Removed redundant rules from .team i and .team img, kept general padding/sizing */
+.team img {
+    height: var(--team-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    /* Removed redundant color and font-size properties for images */
+}
+
+/* The badge itself needs to be displayed as a block element within the container */
+.team .badge {
+    height: var(--team-height);
+    display: block; /* Ensure it takes up space for the container dimensions */
+    padding: 10px;
+    /* Removed redundant rules */
 }
 
 .custom-block-update-news {
@@ -1116,16 +1236,32 @@ i{
 /*---------------------------------------
   CUSTOM FORM               
 -----------------------------------------*/
-.custom-form .form-control {
+.custom-form .form-control{
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 15px;
   color: var(--nav-link-color);
   background: var(--search-bar-color);
   border-radius: var(--border-radius-small);
   border-color: #25282a00;
-  padding: 5px 20px;
+  padding: 0px 10px;
   outline: none;
   transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.custom-form .search-bar{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px;
+  color: var(--nav-link-color);
+  background: var(--search-bar-color);
+  border-radius: var(--border-radius-small);
+  border-color: #25282a00;
+  padding: 5px 10px;
+  outline: none;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 .form-check-input:checked {
@@ -1135,12 +1271,6 @@ i{
 
 .form-check-label {
   color: var(--p-color);
-}
-
-.custom-form .form-control:hover,
-.custom-form .form-control:focus {
-  background: var(--navbar-color);
-  border-color: transparent;
 }
 
 .custom-form button[type="button"],
@@ -1162,6 +1292,8 @@ i{
   background: var(--custom-btn-bg-color);
   border-color: transparent;
 }
+
+
 
 #navbarLightDropdownMenuLink{
   top: 5px;
