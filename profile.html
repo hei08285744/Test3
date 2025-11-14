@@ -7,11 +7,12 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Mini Finance - Profile Page</title>
+        <title>Profile</title>
 
         <!-- CSS FILES -->      
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
         <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
@@ -28,36 +29,40 @@ Bootstrap 5 Dashboard Admin Template
     </head>
     
     <body>
-        <header class="navbar sticky-top flex-md-nowrap">
+        <header class="navbar sticky-top flex-md-nowrap">          
             <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-                <img class = "logo-image" src="assets/imgs/logo-2.jpg" alt="" >
-                <a class="logo" href="index2.html"><b>Knotulus</b></a>                            
+                <img class = "logo-image" src="assets/imgs/logo-4.png" alt="" >
+                <a class="logo align-items-center" href="index2.html"><b>Knotulus</b></a>          
             </div>
 
-            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <!--Search Bar-->
-                <form class="custom-form header-form ms-lg-3 ms-md-3 me-lg-auto me-md-auto order-2 order-lg-0 order-md-0" action="#" method="get" role="form">
-                    <input class="form-control" name="search" type="text" placeholder="Search Knots..." aria-label="Search">
-                </form>
+                <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                 <!--Search Bar-->
+                 <form id="header-search-form" action="#" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" method="get" autocomplete="off">
+                     <div class="form-control">
+                        <label for="search-term"><i class="ti ti-search"></i></label>                  
+                        <input class="search-bar" id="search-input" name="q" type="search" placeholder="Search Knots..." aria-label="Search" autocomplete="off"             
+                               autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">             
+                     </div>                             
+                 </form>
 
             <div class="navbar-nav me-lg-2">
                 <div class="nav-item text-nowrap d-flex align-items-center">
-                    <div class="dropdown ps-3">
-                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi-bell"></i>
+                    <div class="dropdown ps-3 ">
+                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                            <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
                             <span class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
                                 <span class="visually-hidden">New alerts</span>
                             </span>
                         </a>
 
-                        <ul class="dropdown-menu notifications-block-wrap bg-white shadow">
+                        <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap bg-white shadow" aria-labelledby="navbarLightDropdownMenuLink">
                             <small>Notifications</small>
 
                             <li class="notifications-block border-bottom pb-2 mb-2">
-                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                <a class="dropdown-item d-flex  align-items-center" href="#">
                                     <div class="notifications-icon-wrap bg-success">
                                         <i class="notifications-icon bi-check-circle-fill"></i>
                                     </div>
@@ -154,46 +159,53 @@ Bootstrap 5 Dashboard Admin Template
                         </div>
                     </div>-->
 
-                    <div class="dropdown px-3">
+                    <div class="dropdown px-4">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <!--<img src="images/medium-shot-happy-man-smiling.jpg" class="profile-image img-fluid" alt="">-->
                             <img class = "profile-image img-fluid" src='https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light'/>
+                            <span class="position-absolute end-0 bottom-60 translate-middle p-1-5 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
                         </a>
-                        <ul class="dropdown-menu bg-white shadow">
+                        <ul class="dropdown-menu shadow">
                             <li>
                                 <div class="dropdown-menu-profile-thumb d-flex">
                                     <img src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Round&facialHairType=MoustacheFancy&facialHairColor=Blonde&clotheType=CollarSweater&clotheColor=Gray01&eyeType=Surprised&eyebrowType=RaisedExcitedNatural&mouthType=Default&skinColor=Light" class="profile-image img-fluid me-3" alt="">
 
                                     <div class="d-flex flex-column">
-                                        <small>Thomas</small>
-                                        <a href="#">thomas@site.com</a>
+                                        <!-- IDs added so script can update dropdown when profile is changed -->
+                                        <b id="header-small-name">Thomas</b>
+                                        <small>
+                                            <a id="header-small-email" href="mailto:thomas@site.com">thomas@site.com</a>
+                                        </small>
                                     </div>
                                 </div>
                             </li>
 
                             <li>
                                 <a class="dropdown-item" href="profile.html">
-                                    <i class="bi-person me-2"></i>
+                                    <i class="ti ti-user"></i>
                                     Profile
                                 </a>
                             </li>
 
                             <li>
                                 <a class="dropdown-item" href="setting.html">
-                                    <i class="bi-gear me-2"></i>
+                                    <i class="ti ti-settings"></i>
                                     Settings
                                 </a>
                             </li>
 
                             <li>
                                 <a class="dropdown-item" href="help-center.html">
-                                    <i class="bi-question-circle me-2"></i>
+                                    <i class="ti ti-help"></i>
                                     Help
                                 </a>
                             </li>
 
-                            <li class="border-top mt-3 pt-2 mx-4">
-                                <a class="dropdown-item ms-0 me-0" href="index.html">
-                                    <i class="bi-box-arrow-left me-2"></i>
+                            <li class="border-top mt-3 pt-2">
+                                <a class="dropdown-item" href="index.html">
+                                    <i class="ti ti-logout"></i>
                                     Logout
                                 </a>
                             </li>
@@ -202,50 +214,71 @@ Bootstrap 5 Dashboard Admin Template
                 </div>
             </div>
         </header>
+        <br>
 
         <div class="container-fluid">
             <div class="row">
                 <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
-                    <div class="position-sticky py-4 px-3 sidebar-sticky">
+                    <div class="position-sticky py-2 px-3 sidebar-sticky">
                         <ul class="nav flex-column h-100">
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Home</div>
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="index2.html">
-                                    <i class="bi-house-fill me-2"></i>
+                                    <i class="ti ti-layout-dashboard"></i>
                                     Dashboard
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="leaderboard.html">
-                                    <i class="bi-wallet me-2"></i>
+                                    <i class="ti ti-chart-bar"></i>
                                     Leaderboard
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="quests.html">
-                                    <i class="bi-wallet me-2"></i>
+                                    <i class="ti ti-book"></i>
                                     Quests
                                 </a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link active" href="profile.html">
-                                    <i class="bi-person me-2"></i>
-                                    Profile
+                                <a class="nav-link" href="premium.html">
+                                    <i class="ti ti-rosette"></i>
+                                    Premium
                                 </a>
                             </li>
 
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Discovery</div>
+                            <!--<li class="nav-item">
+                                <a class="nav-link" href="profile.html">
+                                    <i class="bi-person me-2"></i>
+                                    Profile
+                                </a>
+                            </li>-->
+
+                            <br>
+                            <div class="categories-title">&nbsp;&nbsp;Support</div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="community.html">
+                                    <i class="ti ti-users"></i>
+                                    Community
+                                </a>
+                            </li>
+                            
                             <li class="nav-item">
                                 <a class="nav-link" href="setting.html">
-                                    <i class="bi-gear me-2"></i>
+                                    <i class="ti ti-settings"></i>
                                     Settings
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="help-center.html">
-                                    <i class="bi-question-circle me-2"></i>
+                                    <i class="ti ti-help"></i>
                                     Help Center
                                 </a>
                             </li>
@@ -255,21 +288,59 @@ Bootstrap 5 Dashboard Admin Template
 
                                 <a class="btn custom-btn" href="#">Upgrade</a>
                             </li>-->
+                            <!--<br>
+                            <a class="btn custom-btn" href="#">Pro</a>-->
 
-                            <li class="nav-item border-top mt-auto pt-2">
+                            <!--<li class="nav-item border-top mt-auto pt-2">
                                 <a class="nav-link" href="index.html">
                                     <i class="bi-box-arrow-left me-2"></i>
                                     Logout
                                 </a>
-                            </li>
+                            </li>-->
+                            <br>
+                            <li class="nav-item border-top mt-auto pt-2">
+                                <!--Search Bar-->
+                                <form id="sidebar-search-form" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" action="#" method="get" role="form">
+                                    <div class="form-control">
+                                        <label for="search-term"><i class="ti ti-search"></i></label> 
+                                        <input class="search-bar" id="sidebar-search-input" name="search" type="text" placeholder="Search Knots..." aria-label="Search" autocomplete="off"
+                                            autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">
+                                    </div>
+                                </form>  
+
+                                
+                                <br>
+                                <a class="nav-link-button" href="#">       
+                                    <button class="nav-link-toggle" id="theme-toggle">
+                                        <i class="ti ti-moon" style="font-size: 1.5em;"></i>
+                                    </button>                            
+                                </a>
+
+                                <a class="nav-link-button" href="#">     
+                                    <button class="nav-link-toggle" id="theme-toggle">
+                                        <i class="ti ti-language" style="font-size: 1.5em;"></i>
+                                    </button>                                                                   
+                                </a>
+
+                                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                                        <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
+                                        <span class="position-absolute translate-middle p-1 bg-danger border border-light rounded-circle">
+                                            <span class="visually-hidden">New alerts</span>
+                                        </span>
+                                </a>                                
+                            </li> 
+                            <br><br>               
                         </ul>
                     </div>
                 </nav>
 
-                <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-                    <div class="title-group mb-3">
-                        <h1 class="h-100 mb-0"><b>Profile</b></h1>
-                    </div>
+                <main class="main-wrapper col-md-9 ms-sm-auto py-0 col-lg-9 px-md-4 border-start border-top border-right border-bottom border-end">
+
+                    <div class="row my-4">
+                        <div class="title-group mb-3">
+                            <h1 class="h7 mb-0">Profile</h1>
+                            <!--<small class="text-muted">Hello Thomas, welcome back!</small>-->
+                        </div>
 
                     <div class="row my-4">
                         <div class="col-lg-7 col-12">
@@ -290,85 +361,15 @@ Bootstrap 5 Dashboard Admin Template
                                     <div class="col-lg-9 col-12">
                                         <p class="d-flex flex-wrap mb-2">
                                             <strong>Name:</strong>
-
-                                            <span>Thomas Edison</span>
+                                            <span id="display-profile-name" class="ms-2">Thomas Edison</span>
                                         </p>
 
                                         <p class="d-flex flex-wrap mb-2">
-                                            <strong>Email:</strong>
-                                            
-                                            <a href="#">
-                                                thomas@site.com
-                                            </a>
-                                        </p>
-
-                                        <p class="d-flex flex-wrap mb-2">
-                                            <strong>Phone:</strong>
-
-                                            <a href="#">
-                                                (60) 12 345 6789
-                                            </a>
-                                        </p>
-
-                                        <p class="d-flex flex-wrap mb-2">
-                                            <strong>Birthday:</strong>
-
-                                            <span>March 5, 1992</span>
-                                        </p>
-
-                                        <p class="d-flex flex-wrap">
-                                            <strong>Address:</strong>
-
-                                            <span>551 Swanston Street, Melbourne</span>
+                                           <strong>Email:</strong>
+                                            <a id="display-profile-email" class="ms-2" href="mailto:thomas@site.com">thomas@site.com</a>
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="custom-block custom-block-profile bg-white">
-                                <h6 class="mb-4">Card Information</h6>
-
-                                <p class="d-flex flex-wrap mb-2">
-                                    <strong>User ID:</strong>
-
-                                    <span>012 395 8647</span>
-                                </p>
-
-                                <p class="d-flex flex-wrap mb-2">
-                                    <strong>Type:</strong>
-
-                                    <span>Personal</span>
-                                </p>
-
-                                <p class="d-flex flex-wrap mb-2">
-                                    <strong>Created:</strong>
-
-                                    <span>July 19, 2020</span>
-                                </p>
-
-                                <p class="d-flex flex-wrap mb-2">
-                                    <strong>Valid Date:</strong>
-
-                                    <span>July 18, 2032</span>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-5 col-12">
-                            <div class="custom-block custom-block-contact">
-                                <h6 class="mb-4">Still can’t find what you looking for?</h6>
-
-                                <p>
-                                    <strong>Call us:</strong>
-                                    <a href="tel: 305-240-9671" class="ms-2">
-                                        (60) 
-                                        305-240-9671
-                                    </a>
-                                </p>
-
-                                <a href="#" class="btn custom-btn custom-btn-bg-white mt-3">
-                                    Chat with us
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -395,5 +396,147 @@ Bootstrap 5 Dashboard Admin Template
         <script src="assets/js/bootstrap.bundle.min.js"></script>
         <script src="assets/js/custom.js"></script>
 
+        <script type="text/javascript"> //dark mode toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const body = document.body;
+            const localStorageKey = 'dark-mode';
+
+            // Function to set the theme
+            function setTheme(isDarkMode) {
+                if (isDarkMode) {
+                    body.classList.add('dark-mode');
+                    localStorage.setItem(localStorageKey, 'true');
+                } else {
+                    body.classList.remove('dark-mode');
+                    localStorage.removeItem(localStorageKey);
+                }
+            }
+
+            // Check for saved user preference on page load
+            if (localStorage.getItem(localStorageKey) === 'true') {
+                setTheme(true);
+            }
+
+            // Add event listener to the toggle button
+            themeToggleBtn.addEventListener('click', () => {
+                // Toggle the theme state
+                setTheme(!body.classList.contains('dark-mode'));
+            });
+
+        </script>
+        <script> //searchbar index
+            // Custom search redirect: map input keywords to pages; fallback to search-results.html?q=
+            (function() {
+                const map = {
+                    'logout': 'index.html',
+                    'home': 'index2.html',
+                    'dash': 'index2.html',
+                    'dashboard': 'index2.html',
+                    'leaderboard': 'leaderboard.html',
+                    'leader': 'leaderboard.html',
+                    'premium': 'premium.html',
+                    'profile': 'profile.html',
+                    'quest': 'quests.html',
+                    'quests': 'quests.html',
+                    'community': 'community.html',
+                    'settings': 'setting.html',
+                    'setting': 'setting.html',
+                    'help': 'help-center.html',
+                    
+                };
+
+                function handleSearchSubmit(e, inputEl) {
+                    e.preventDefault();
+                    const raw = inputEl.value || '';
+                    const term = raw.trim();
+                    if (!term) return;
+                    const lower = term.toLowerCase();
+
+                    for (const key in map) {
+                        if (Object.prototype.hasOwnProperty.call(map, key) && lower.includes(key)) {
+                            // pass original query as q param
+                            window.location.href = map[key] + '?q=' + encodeURIComponent(term);
+                            return;
+                        }
+                    }
+
+                    // no matching page -> go to generic search results page
+                    window.location.href = 'search-results.html?q=' + encodeURIComponent(term);
+                }
+
+                const headerForm = document.getElementById('header-search-form');
+                const headerInput = document.getElementById('search-input');
+                if (headerForm && headerInput) {
+                    headerForm.addEventListener('submit', (e) => handleSearchSubmit(e, headerInput));
+                }
+
+                const sidebarForm = document.getElementById('sidebar-search-form');
+                const sidebarInput = document.getElementById('sidebar-search-input');
+                if (sidebarForm && sidebarInput) {
+                    sidebarForm.addEventListener('submit', (e) => handleSearchSubmit(e, sidebarInput));
+                }
+
+                // Optional: allow Enter inside inputs to submit (already handled by form submit)
+                // Also optionally support pressing Enter without using the form:
+                [headerInput, sidebarInput].forEach(inp => {
+                    if (!inp) return;
+                    inp.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleSearchSubmit(e, inp);
+                        }
+                    });
+                });
+            })();
+        </script>
+        
+        <script> //profile update
+            // Load updated profile from localStorage and display on the page.
+            // This script only updates display elements; saving is handled by the settings page.
+            (function () {
+                const DISPLAY_NAME_ID = 'display-profile-name';
+                const DISPLAY_EMAIL_ID = 'display-profile-email';
+                const HEADER_NAME_ID = 'header-small-name';
+                const HEADER_EMAIL_ID = 'header-small-email';
+
+                function updateProfileDisplay() {
+                    const name = localStorage.getItem('profileName') || '';
+                    const email = localStorage.getItem('profileEmail') || '';
+
+                    const displayName = document.getElementById(DISPLAY_NAME_ID);
+                    const displayEmail = document.getElementById(DISPLAY_EMAIL_ID);
+                    const headerName = document.getElementById(HEADER_NAME_ID);
+                    const headerEmail = document.getElementById(HEADER_EMAIL_ID);
+
+                    if (displayName) displayName.textContent = name || '—';
+                    if (displayEmail) {
+                        displayEmail.textContent = email || '—';
+                        displayEmail.href = email ? ('mailto:' + email) : '#';
+                    }
+                    if (headerName) headerName.textContent = name || 'User';
+                    if (headerEmail) {
+                        headerEmail.textContent = email || '';
+                        if (email) headerEmail.href = 'mailto:' + email;
+                    }
+
+                    // update other common selectors (navbar username, profile-name, dropdown-username)
+                    document.querySelectorAll('.navbar-username, #profile-name, #dropdown-username').forEach(el => {
+                        if (el) el.textContent = name || '';
+                    });
+                }
+
+                // update on initial load
+                document.addEventListener('DOMContentLoaded', updateProfileDisplay);
+
+                // update if localStorage changes in another tab/window
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'profileName' || e.key === 'profileEmail') updateProfileDisplay();
+                });
+
+                // Provide a global helper so settings page can call it after saving
+                window.updateProfileDisplay = updateProfileDisplay;
+            })();
+        </script>
+ 
     </body>
 </html>

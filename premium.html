@@ -7,25 +7,17 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Setting</title>
+        <title>Premium</title>
 
         <!-- CSS FILES -->      
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
         <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+        <link href="assets/css/apexcharts.css" rel="stylesheet">
         <link href="assets/css/tooplate-mini-finance.css" rel="stylesheet">
-<!--
 
-Tooplate 2135 Mini Finance
-
-https://www.tooplate.com/view/2135-mini-finance
-
-Bootstrap 5 Dashboard Admin Template
-
--->
     </head>
     
     <body>
@@ -39,7 +31,7 @@ Bootstrap 5 Dashboard Admin Template
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                 <!--Search Bar-->
+                <!--Search Bar-->
                  <form id="header-search-form" action="#" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" method="get" autocomplete="off">
                      <div class="form-control">
                         <label for="search-term"><i class="ti ti-search"></i></label>                  
@@ -50,19 +42,19 @@ Bootstrap 5 Dashboard Admin Template
 
             <div class="navbar-nav me-lg-2">
                 <div class="nav-item text-nowrap d-flex align-items-center">
-                    <div class="dropdown ps-3">
-                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi-bell"></i>
+                    <div class="dropdown ps-3 ">
+                        <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="navbarLightDropdownMenuLink">
+                            <i class="ti ti-bell-filled" style="font-size: 2em;"></i>
                             <span class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
                                 <span class="visually-hidden">New alerts</span>
                             </span>
                         </a>
 
-                        <ul class="dropdown-menu notifications-block-wrap bg-white shadow">
+                        <ul class="dropdown-menu dropdown-menu-lg-end notifications-block-wrap bg-white shadow" aria-labelledby="navbarLightDropdownMenuLink">
                             <small>Notifications</small>
 
                             <li class="notifications-block border-bottom pb-2 mb-2">
-                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                <a class="dropdown-item d-flex  align-items-center" href="#">
                                     <div class="notifications-icon-wrap bg-success">
                                         <i class="notifications-icon bi-check-circle-fill"></i>
                                     </div>
@@ -209,12 +201,12 @@ Bootstrap 5 Dashboard Admin Template
                                     Logout
                                 </a>
                             </li>
-                        </ul>  
+                        </ul>
                     </div>
                 </div>
             </div>
         </header>
-
+        <br>
         <div class="container-fluid">
             <div class="row">
                 <nav id="sidebarMenu" class="col-md-3 col-lg-3 d-md-block sidebar collapse">
@@ -223,7 +215,7 @@ Bootstrap 5 Dashboard Admin Template
                             <br>
                             <div class="categories-title">&nbsp;&nbsp;Home</div>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index2.html">
+                                <a class="nav-link" aria-current="page" href="index2.html">
                                     <i class="ti ti-layout-dashboard"></i>
                                     Dashboard
                                 </a>
@@ -242,9 +234,9 @@ Bootstrap 5 Dashboard Admin Template
                                     Quests
                                 </a>
                             </li>
-
+                            
                             <li class="nav-item">
-                                <a class="nav-link" href="premium.html">
+                                <a class="nav-link active" href="premium.html">
                                     <i class="ti ti-rosette"></i>
                                     Premium
                                 </a>
@@ -270,14 +262,14 @@ Bootstrap 5 Dashboard Admin Template
                             
                             <li class="nav-item">
                                 <a class="nav-link" href="setting.html">
-                                    <i class="ti ti-settings"></i>
+                                    <i class="bi-gear me-2"></i>
                                     Settings
                                 </a>
                             </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="help-center.html">
-                                    <i class="ti ti-help"></i>
+                                    <i class="bi-question-circle me-2"></i>
                                     Help Center
                                 </a>
                             </li>
@@ -306,8 +298,6 @@ Bootstrap 5 Dashboard Admin Template
                                             autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">
                                     </div>
                                 </form>  
-
-                                
                                 <br>
                                 <a class="nav-link-button" href="#">       
                                     <button class="nav-link-toggle" id="theme-toggle">
@@ -333,136 +323,14 @@ Bootstrap 5 Dashboard Admin Template
                     </div>
                 </nav>
 
-                <main class="main-wrapper col-md-9 ms-sm-auto py-0 col-lg-9 px-md-4 border-start border-top border-right border-bottom border-end">
+                <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start border-top border-right border-bottom">
+                    <div class="title-group mb-3">
+                        <h1 class="h7 mb-0">Premium</b></h1>
 
-                    <div class="row my-4">
-                        <div class="title-group mb-3">
-                            <h1 class="h7 mb-0">Setting</h1>
-                            <!--<small class="text-muted">Hello Thomas, welcome back!</small>-->
-                        </div>
-
-                        <div class="col-lg-7 col-12">
-                            <div class="custom-block-badges">
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="true">Profile</button>
-                                    </li>
-
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="password-tab" data-bs-toggle="tab" data-bs-target="#password-tab-pane" type="button" role="tab" aria-controls="password-tab-pane" aria-selected="false">Password</button>
-                                    </li>
-
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="notification-tab" data-bs-toggle="tab" data-bs-target="#notification-tab-pane" type="button" role="tab" aria-controls="notification-tab-pane" aria-selected="false">Notification</button>
-                                    </li>
-                                </ul>
-
-                                <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                                        <h6 class="mb-4">User Profile</h6>
-
-                                        <div class="col-lg-9 col-12">
-                                        <!-- Edit control + editable form (display elements removed) -->
-                                            <div class="d-flex align-items-center mb-3">
-                                                <div class="me-3">
-                                                    <!--<strong>Profile</strong>-->
-                                                    <div class="small text-muted"><p>Use Edit to update name & email</p></div>
-                                                </div>
-                                                <!-- use same visual class as Save -->
-                                                <button type="button" id="edit-profile-btn" class="btn custom-btn btn-sm ms-3">Edit</button>
-                                            </div>
-
-                                            <!-- editable form (hidden by default) -->
-                                            <form id="profile-edit-form" class="mb-3 d-none" onsubmit="return false;">
-                                                <div class="d-flex flex-wrap mb-2 align-items-center">
-                                                    <strong class="me-2">Name:</strong>
-                                                    <input id="input-profile-name" class="form-control form-control-sm w-auto" type="text" value="Thomas Edison" />
-                                                </div>
-                                                <br>
-                                                <div class="d-flex flex-wrap mb-2 align-items-center">
-                                                    <strong class="me-2">Email:</strong>
-                                                    <input id="input-profile-email" class="form-control form-control-sm w-auto" type="email" value="thomas@site.com" />
-                                                </div>
-                                                <br>
-                                                <div class="d-flex gap-2">
-                                                    <button type="button" id="save-profile-btn" class="btn custom-btn btn-sm">Save</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                    <div class="tab-pane fade" id="password-tab-pane" role="tabpanel" aria-labelledby="password-tab" tabindex="0">
-                                        <h6 class="mb-4">Password</h6>
-
-                                        <form class="custom-form password-form" action="#" method="post" role="form">
-                                            <input type="password" name="password" id="password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Current Password" required="">
-
-                                            <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="New Password" required="">
-
-                                            <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Confirm Password" required="">
-
-                                            <div class="d-flex">
-                                                <button type="button" class="form-control me-3">
-                                                    Reset
-                                                </button>
-
-                                                <button type="submit" class="form-control ms-2">
-                                                    Update Password
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <div class="tab-pane fade" id="notification-tab-pane" role="tabpanel" aria-labelledby="notification-tab" tabindex="0">
-                                        <h6 class="mb-4">Notification</h6>
-
-                                        <form class="custom-form notification-form" action="#" method="post" role="form">
-
-                                            <div class="form-check form-switch d-flex mb-3 ps-0">
-                                                <label class="form-check-label" for="flexSwitchCheckCheckedOne">Account activity</label>
-
-                                                <input class="form-check-input ms-auto" type="checkbox" name="form-check-input" role="switch" id="flexSwitchCheckCheckedOne" checked>
-                                            </div>
-
-                                            <div class="form-check form-switch d-flex mb-3 ps-0">
-                                                <label class="form-check-label" for="flexSwitchCheckCheckedTwo">Payment updated</label>
-
-                                                <input class="form-check-input ms-auto" type="checkbox" name="form-check-input" role="switch" id="flexSwitchCheckCheckedTwo" checked>
-                                            </div>
-
-                                            <div class="d-flex mt-4">
-                                                <button type="button" class="form-control me-3">
-                                                    Reset
-                                                </button>
-
-                                                <button type="submit" class="form-control ms-2">
-                                                    Update Password
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--<div class="col-lg-5 col-12">
-                            <div class="custom-block custom-block-contact">
-                                <h6 class="mb-4">Still can’t find what you looking for?</h6>
-
-                                <p>
-                                    <strong>Call us:</strong>
-                                    <a href="tel: 305-240-9671" class="ms-2">
-                                        (60) 
-                                        305-240-9671
-                                    </a>
-                                </p>
-
-                                <a href="#" class="btn custom-btn custom-btn-bg-white mt-3">
-                                    Chat with us
-                                </a>
-                            </div>
-                        </div>-->
+                        <!--<small class="text-muted">Hello Thomas, welcome back!</small>-->
                     </div>
+
+                    
 
                     <footer class="site-footer">
                         <div class="container">
@@ -484,8 +352,10 @@ Bootstrap 5 Dashboard Admin Template
         <!-- JAVASCRIPT FILES -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/apexcharts.min.js"></script>
         <script src="assets/js/custom.js"></script>
-           
+        <script src="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/icons-react/dist/index.umd.min.js"></script>
+
         <script type="text/javascript"> //dark mode toggle
             const themeToggleBtn = document.getElementById('theme-toggle');
             const body = document.body;
@@ -512,7 +382,6 @@ Bootstrap 5 Dashboard Admin Template
                 // Toggle the theme state
                 setTheme(!body.classList.contains('dark-mode'));
             });
-
         </script>
         <script> //searchbar index
             // Custom search redirect: map input keywords to pages; fallback to search-results.html?q=
@@ -579,56 +448,54 @@ Bootstrap 5 Dashboard Admin Template
                 });
             })();
         </script>
+       
+        <script> //drop down profile update
+            // Load updated profile from localStorage and display on the page.
+            // This script only updates display elements; saving is handled by the settings page.
+            (function () {
+                const DISPLAY_NAME_ID = 'display-profile-name';
+                const DISPLAY_EMAIL_ID = 'display-profile-email';
+                const HEADER_NAME_ID = 'header-small-name';
+                const HEADER_EMAIL_ID = 'header-small-email';
 
-        <script> //profile update
-            (function(){
-                const headerName = document.getElementById('header-small-name');
-                const headerEmail = document.getElementById('header-small-email');
-                const editBtn = document.getElementById('edit-profile-btn');
-                const saveBtn = document.getElementById('save-profile-btn');
-                const form = document.getElementById('profile-edit-form');
-                const inputName = document.getElementById('input-profile-name');
-                const inputEmail = document.getElementById('input-profile-email');
+                function updateProfileDisplay() {
+                    const name = localStorage.getItem('profileName') || '';
+                    const email = localStorage.getItem('profileEmail') || '';
 
-                // load saved profile from localStorage and populate inputs/header
-                const savedName = localStorage.getItem('profileName');
-                const savedEmail = localStorage.getItem('profileEmail');
-                if (savedName && inputName) inputName.value = savedName;
-                if (savedEmail && inputEmail) inputEmail.value = savedEmail;
-                if (headerName && inputName) headerName.textContent = inputName.value.trim();
-                if (headerEmail && inputEmail) headerEmail.textContent = inputEmail.value.trim();
+                    const displayName = document.getElementById(DISPLAY_NAME_ID);
+                    const displayEmail = document.getElementById(DISPLAY_EMAIL_ID);
+                    const headerName = document.getElementById(HEADER_NAME_ID);
+                    const headerEmail = document.getElementById(HEADER_EMAIL_ID);
 
-                function showForm(show) {
-                    if (!form) return;
-                    form.classList.toggle('d-none', !show);
-                    editBtn && (editBtn.textContent = show ? 'Cancel' : 'Edit');
-                    if (show) inputName && inputName.focus();
+                    if (displayName) displayName.textContent = name || '—';
+                    if (displayEmail) {
+                        displayEmail.textContent = email || '—';
+                        displayEmail.href = email ? ('mailto:' + email) : '#';
+                    }
+                    if (headerName) headerName.textContent = name || 'User';
+                    if (headerEmail) {
+                        headerEmail.textContent = email || '';
+                        if (email) headerEmail.href = 'mailto:' + email;
+                    }
+
+                    // update other common selectors (navbar username, profile-name, dropdown-username)
+                    document.querySelectorAll('.navbar-username, #profile-name, #dropdown-username').forEach(el => {
+                        if (el) el.textContent = name || '';
+                    });
                 }
 
-                // toggle form visibility with edit button
-                editBtn && editBtn.addEventListener('click', () => {
-                    showForm(form.classList.contains('d-none'));
+                // update on initial load
+                document.addEventListener('DOMContentLoaded', updateProfileDisplay);
+
+                // update if localStorage changes in another tab/window
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'profileName' || e.key === 'profileEmail') updateProfileDisplay();
                 });
 
-                // save: update header and localStorage (display elements removed)
-                saveBtn && saveBtn.addEventListener('click', () => {
-                    const name = inputName ? inputName.value.trim() : '';
-                    const email = inputEmail ? inputEmail.value.trim() : '';
-                    if (name) {
-                        localStorage.setItem('profileName', name);
-                        headerName && (headerName.textContent = name);
-                        document.querySelectorAll('.navbar-username, #profile-name, #dropdown-username').forEach(el => { el.textContent = name; });
-                    }
-                    if (email) {
-                        localStorage.setItem('profileEmail', email);
-                        headerEmail && (headerEmail.textContent = email, headerEmail.href = 'mailto:' + email);
-                    }
-                    showForm(false);
-                    const orig = saveBtn.textContent;
-                    saveBtn.textContent = 'Saved';
-                    setTimeout(() => saveBtn.textContent = orig, 1200);
-                });
+                // Provide a global helper so settings page can call it after saving
+                window.updateProfileDisplay = updateProfileDisplay;
             })();
-        </script>
+         </script>
+
     </body>
 </html>
