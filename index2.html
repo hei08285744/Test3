@@ -32,12 +32,13 @@
                 </button>
 
                  <!--Search Bar-->
-                <form action="search-results.html" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" method="get">
-                    <div class="form-control">
+                 <form id="header-search-form" action="#" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" method="get" autocomplete="off">
+                     <div class="form-control">
                         <label for="search-term"><i class="ti ti-search"></i></label>                  
-                        <input class="search-bar" id="search-input" name="q" type="search" placeholder="Search Knots..." aria-label="Search">             
-                    </div>                             
-                </form>
+                        <input class="search-bar" id="search-input" name="q" type="search" placeholder="Search Knots..." aria-label="Search" autocomplete="off"             
+                               autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">             
+                     </div>                             
+                 </form>
 
             <div class="navbar-nav me-lg-2">
                 <div class="nav-item text-nowrap d-flex align-items-center">
@@ -271,9 +272,15 @@
                             <br>
                             <li class="nav-item border-top mt-auto pt-2">
                                 <!--Search Bar-->
-                                <form class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" action="#" method="get" role="form">
-                                    <input class="form-control" name="search" type="text" placeholder="Search Knots..." aria-label="Search">
+                                <form id="sidebar-search-form" class="custom-form header-form ms-lg-0 ms-md-0 me-lg-auto me-md-auto order-0 order-lg-0 order-md-0" action="#" method="get" role="form">
+                                    <div class="form-control">
+                                        <label for="search-term"><i class="ti ti-search"></i></label> 
+                                        <input class="search-bar" id="sidebar-search-input" name="search" type="text" placeholder="Search Knots..." aria-label="Search" autocomplete="off"
+                                            autocomplete="nope" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="search">
+                                    </div>
                                 </form>  
+
+                                
                                 <br>
                                 <a class="nav-link-button" href="#">       
                                     <button class="nav-link-toggle" id="theme-toggle">
@@ -788,16 +795,68 @@
 
         </script>
         <script>
-            // search-results.html
-            window.onload = function() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const searchTerm = urlParams.get('query'); // 'query' is the name of your input field
+            // Custom search redirect: map input keywords to pages; fallback to search-results.html?q=
+            (function() {
+                const map = {
+                    'leaderboard': 'leaderboard.html',
+                    'leader': 'leaderboard.html',
+                    'profile': 'profile.html',
+                    'quest': 'quests.html',
+                    'quests': 'quests.html',
+                    'settings': 'setting.html',
+                    'setting': 'setting.html',
+                    'help': 'help-center.html',
+                    'wallet': 'wallet.html',
+                    'transaction': 'transation-detail.html',
+                    'transation': 'transation-detail.html',
+                    'logout': 'index.html',
+                    'home': 'index2.html',
+                    'dashboard': 'index2.html'
+                };
 
-                if (searchTerm) {
-                    document.getElementById('displaySearchTerm').innerText = `You searched for: ${searchTerm}`;
-                    // Further logic to display search results based on 'searchTerm'
+                function handleSearchSubmit(e, inputEl) {
+                    e.preventDefault();
+                    const raw = inputEl.value || '';
+                    const term = raw.trim();
+                    if (!term) return;
+                    const lower = term.toLowerCase();
+
+                    for (const key in map) {
+                        if (Object.prototype.hasOwnProperty.call(map, key) && lower.includes(key)) {
+                            // pass original query as q param
+                            window.location.href = map[key] + '?q=' + encodeURIComponent(term);
+                            return;
+                        }
+                    }
+
+                    // no matching page -> go to generic search results page
+                    window.location.href = 'search-results.html?q=' + encodeURIComponent(term);
                 }
-            };
+
+                const headerForm = document.getElementById('header-search-form');
+                const headerInput = document.getElementById('search-input');
+                if (headerForm && headerInput) {
+                    headerForm.addEventListener('submit', (e) => handleSearchSubmit(e, headerInput));
+                }
+
+                const sidebarForm = document.getElementById('sidebar-search-form');
+                const sidebarInput = document.getElementById('sidebar-search-input');
+                if (sidebarForm && sidebarInput) {
+                    sidebarForm.addEventListener('submit', (e) => handleSearchSubmit(e, sidebarInput));
+                }
+
+                // Optional: allow Enter inside inputs to submit (already handled by form submit)
+                // Also optionally support pressing Enter without using the form:
+                [headerInput, sidebarInput].forEach(inp => {
+                    if (!inp) return;
+                    inp.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleSearchSubmit(e, inp);
+                        }
+                    });
+                });
+            })();
         </script>
         
     </body>
