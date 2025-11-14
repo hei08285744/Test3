@@ -30,6 +30,7 @@ https://www.tooplate.com/view/2135-mini-finance
   --p-color:                      #10101170;
   --border-color:                 #000000;
   --link-hover-color:             #282a2c;
+  --profile-text-color:           #282a2c;
 
 
   --body-font-family:             'Unbounded';
@@ -109,10 +110,12 @@ h5 {
 }
 
 h6 {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: var(--h6-font-size);
 }
 
 p {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   color: var(--p-color);
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-light);
@@ -205,9 +208,55 @@ i{
 /*---------------------------------------
   TAB BAR              
 -----------------------------------------*/
+/*
 .tab-content {
   background-color: var(--white-color);
   border-radius: var(--border-radius-medium);
+}
+*/
+
+.custom-block-badges .nav-tabs {
+  border-bottom: 0;
+  padding-bottom: 0.5rem;
+}
+
+.custom-block-badges .nav-tabs .nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--nav-link-color, #333);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.55rem 0.9rem;
+  margin-right: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.04s;
+  box-shadow: none;
+}
+
+/* Hover state like sidebar links */
+.custom-block-badges .nav-tabs .nav-link:hover,
+.custom-block-badges .nav-tabs .nav-link:focus {
+  background: var(--nav-link-hover-bg, rgba(0,0,0,0.04));
+  color: var(--p-color, #111);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* Active tab matches sidebar active visual */
+.custom-block-badges .nav-tabs .nav-link.active {
+  background: var(--nav-link-active-bg, rgba(0,112,243,0.08));
+  color: var(--primary-color, #0069f9);
+  box-shadow: 0 6px 18px rgba(24,39,75,0.06);
+}
+
+/* ensure any icons inside tabs align/size like sidebar icons */
+.custom-block-badges .nav-tabs .nav-link .ti,
+.custom-block-badges .nav-tabs .nav-link .bi {
+  font-size: 1.05rem;
+  color: inherit;
 }
 
 .nav-tabs {
@@ -276,6 +325,44 @@ i{
   text-decoration: none;
   
 }
+
+/*---------------------------------------
+    button
+-----------------------------------------*/
+#edit-profile-btn,
+#cancel-profile-btn,
+.btn.custom-btn {
+  /* If .custom-btn already exists these rules will match it; repeat here to be explicit */
+  background: var(--primary-color, #0069f9);
+  color: var(--white-color, #fff);
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  line-height: 1;
+  border-radius: var(--border-radius-small, 6px);
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.06s;
+}
+
+/* hover / focus */
+#edit-profile-btn:hover,
+#cancel-profile-btn:hover,
+.btn.custom-btn:hover,
+#edit-profile-btn:focus,
+#cancel-profile-btn:focus,
+.btn.custom-btn:focus {
+  background: color-mix(in srgb, var(--primary-color, #0069f9) 88%, black 12%);
+  color: var(--white-color, #fff);
+  transform: translateY(-1px);
+  text-decoration: none;
+  outline: none;
+}
+
 
 /*---------------------------------------
   dark mode    
@@ -355,17 +442,24 @@ i{
   text-align: center;
 }
 
+/*
 .profile-rounded-icon {
   font-size: var(--h2-font-size);
 }
+
 
 .dropdown-menu-profile-thumb {
   margin: 15px 25px;
 }
 
-.dropdown-menu-profile-thumb small,
+.dropdown-menu-profile-thumb strong,
 .dropdown-menu-profile-thumb a {
   font-size: var(--btn-font-size);
+  color: var(--profile-text-color);
+}
+
+.dropdown-menu-profile-thumb a:hover {
+  color: var(--profile-text-color);
 }
 
 .dropdown-menu.dropdown-menu-social {
@@ -391,6 +485,88 @@ i{
 .dropdown .dropdown-menu-social .dropdown-item:hover {
   background: var(--section-bg-color);
   color: var(--p-color);
+}*/
+
+header .dropdown-menu,
+header .dropdown-menu.dropdown-menu-lg-end {
+  background: var(--navbar-color);
+  border: 0;
+  border-radius: 8px;
+  padding: 0.5rem;
+  min-width: 220px;
+  box-shadow: 0 6px 18px rgba(24, 39, 75, 0.08);
+}
+
+/* Dropdown menu items match sidebar link appearance */
+header .dropdown-menu .dropdown-item {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--nav-link-color);
+  padding: 0.6rem 0.9rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: calc(var(--border-radius-small, 6px));
+  font-size: var(--menu-font-size);
+  transition: background-color .15s, color .15s, transform .05s;
+}
+
+/* Hover / active state like sidebar nav-link */
+header .dropdown-menu .dropdown-item:hover,
+header .dropdown-menu .dropdown-item:focus {
+  background: var(--primary-color);
+  color: var(--white-color);
+  text-decoration: none;
+  font-size: var(--menu-font-size);
+
+  i{
+    color: var(--white-color);
+  }
+}
+
+/* Make dropdown profile thumb align like sidebar item */
+.dropdown-menu-profile-thumb {
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+/* Avatar sizing consistent with sidebar small icons */
+.dropdown-menu-profile-thumb .profile-image,
+header .dropdown-menu .profile-image {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Username & email text styles to match sidebar labels */
+header .dropdown-menu .d-flex.flex-column b,
+header .dropdown-menu .d-flex.flex-column a {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: var(--menu-font-size);
+  display: block;
+  line-height: 1.05;
+  color: var(--nav-link-color);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Footer / logout area spacing like sidebar bottom link */
+header .dropdown-menu .border-top {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+/* Ensure icons inside dropdown align and size like sidebar icons */
+header .dropdown-menu .bi,
+header .dropdown-menu .ti {
+  font-size: 1rem;
+  margin-right: 0.4rem;
+  color: var(--nav-link-color, #666);
 }
 
 
@@ -728,7 +904,7 @@ i{
   CUSTOM BLOCK               
 -----------------------------------------*/
 .custom-block {
-  background: var(--secondary-color);
+  background: #d3cfd1;
   border-radius: var(--border-radius-small);
   position: relative;
   overflow: hidden;
@@ -759,6 +935,9 @@ i{
   scrollbar-width: none;
 }
 
+/*--------------------------------
+  Setting custom-block-badges
+------------------------------*/
 .container-badges{
   padding: 10px; 
   justify-content: center;
@@ -1143,6 +1322,8 @@ i{
 }
 
 
+
+
 /*---------------------------------------
   ACCOUNT TABLE               
 -----------------------------------------*/
@@ -1272,7 +1453,7 @@ i{
   background: var(--search-bar-color);
   border-radius: var(--border-radius-small);
   border-color: #25282a00;
-  padding: 0px 10px;
+  padding: 5px 10px;
   outline: none;
   transition: all 0.3s;
   display: flex;
@@ -1286,7 +1467,7 @@ i{
   background: rgba(0, 0, 0, 0);
   border-radius: var(--border-radius-small);
   border-color: #25282a00;
-  padding: 0px 10px;
+  padding: 5px 10px;
   outline: none;
   transition: all 0.3s;
   display: flex;
@@ -1301,7 +1482,7 @@ i{
   background: var(--search-bar-color);
   border-radius: var(--border-radius-small);
   border-color: #25282a00;
-  padding: 0px 10px;
+  padding: 5px 10px;
   outline: none;
   transition: all 0.3s;
   display: flex;
