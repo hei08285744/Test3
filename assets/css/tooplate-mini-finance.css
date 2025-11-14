@@ -633,7 +633,7 @@ i{
   font-size: var(--menu-font-size);
   display:inline-block;
   position: relative;
-  margin-top: 20px;
+  margin-top: 8px;
   
 }
 
@@ -1236,6 +1236,7 @@ i{
 /*---------------------------------------
   CUSTOM FORM               
 -----------------------------------------*/
+/*
 .custom-form .form-control{
   font-family:Georgia, 'Times New Roman', Times, serif;
   font-size: 15px;
@@ -1257,11 +1258,69 @@ i{
   background: var(--search-bar-color);
   border-radius: var(--border-radius-small);
   border-color: #25282a00;
-  padding: 5px 10px;
+  padding: 0px 10px;
   outline: none;
   transition: all 0.3s;
   display: flex;
   align-items: center;
+}*/
+
+#header-search-form .form-control{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px;
+  color: var(--nav-link-color);
+  background: var(--search-bar-color);
+  border-radius: var(--border-radius-small);
+  border-color: #25282a00;
+  padding: 0px 10px;
+  outline: none;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+#header-search-form .search-bar{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px;
+  color: var(--nav-link-color);
+  background: rgba(0, 0, 0, 0);
+  border-radius: var(--border-radius-small);
+  border-color: #25282a00;
+  padding: 0px 10px;
+  outline: none;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  width: 100%
+}
+
+#sidebar-search-form .form-control{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px;
+  color: var(--nav-link-color);
+  background: var(--search-bar-color);
+  border-radius: var(--border-radius-small);
+  border-color: #25282a00;
+  padding: 0px 10px;
+  outline: none;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+#sidebar-search-form .search-bar{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px;
+  color: var(--nav-link-color);
+  background: rgba(0, 0, 0, 0);
+  border-radius: var(--border-radius-small);
+  border-color: #25282a00;
+  padding: 0px 10px;
+  outline: none;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  width: 100%
 }
 
 .form-check-input:checked {
