@@ -1324,8 +1324,8 @@ header .dropdown-menu .ti {
     overflow: hidden;
     box-sizing: border-box;
     padding: 6px 48px 6px 52px;
-    margin-bottom: -200px;
-    
+    bottom: 10px;
+    top: 90px;
 }
  #chat-input:before, #chat-input:after {
 	 content: '';
@@ -1864,6 +1864,11 @@ header .dropdown-menu .ti {
   #sidebarMenu #navbarLightDropdownMenuLink{
     display: none;
   }
+
+  #chat-input{
+    top: 80px;
+    bottom: 20px;
+  }
 }
 
 
@@ -1902,6 +1907,11 @@ header .dropdown-menu .ti {
 
   #sidebarMenu #navbarLightDropdownMenuLink{
     display: none;
+  }
+
+  #chat-input{
+    top: 80px;
+    bottom: 20px;
   }
 }
 
@@ -1949,10 +1959,6 @@ header .dropdown-menu .ti {
   .navbar-brand,
   .custom-block p {
     font-size: var(--menu-font-size);
-  }
-
-  .custom-block-badges{
-    height: calc(100vh - 300px);
   }
 
   .custom-block .profile-image {
@@ -2026,6 +2032,11 @@ header .dropdown-menu .ti {
 
   #sidebarMenu #navbarLightDropdownMenuLink{
     display: none;
+  }
+
+  #chat-input{
+    top: 80px;
+    bottom: 20px;
   }
 }
 
