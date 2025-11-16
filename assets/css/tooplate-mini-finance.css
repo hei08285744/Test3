@@ -1411,31 +1411,51 @@ header .dropdown-menu .ti {
 	 margin-bottom: 10px;
 }
  .line {
-	 padding: 10px;
-	 background-color: #242424;
+	display: flex;              /* place profile-img and body on one row */
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  background-color: #242424;
+  box-sizing: border-box;
 }
+
+.line .body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;              /* allow text to truncate instead of pushing out */
+}
+
  .line > div {
 	 display: inline-block;
 	 vertical-align: top;
 }
  .profile-img {
-	 cursor: pointer;
-	 border-radius: 6px;
-	 width: 60px;
-	 height: 60px;
-	 background-color: #383838;
-	 margin-right: 10px;
+	 flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 6px;
 }
+
+/* text blocks should wrap and not expand the row */
+.body .text {
+  width: 100%;
+  max-width: 100%;
+  word-break: break-word;
+}
+
  .body .chat-name, .body .text {
 	 border-radius: 2px;
 	 background-color: #474747;
 	 height: 16px;
 }
+
  .chat-name {
-	 width: 100px;
-	 margin-bottom: 10px;
-	 position: relative;
-	 cursor: pointer;
+	 width: auto;
+  max-width: 100%;
+  margin-bottom: 10px;
+  position: relative;
 }
  .chat-name:after {
 	 content: '';
@@ -1494,7 +1514,11 @@ header .dropdown-menu .ti {
 	 transition: 200ms;
 }
 
-
+.profile-img, .chat-name, .text {
+  opacity: 1;
+  transform: none;
+  transition: 200ms;
+}
 
 
 /*---------------------------------------
@@ -1865,9 +1889,21 @@ header .dropdown-menu .ti {
     display: none;
   }
 
-  #chat-input{
-    top: 80px;
-    bottom: 20px;
+  #chat-container {
+    height: 50vh;
+    max-height: calc(100vh - 160px);
+    padding: 10px;
+  }
+  .chat {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  #chat-input {
+    max-width: 100%;
+    height: 44px;
+    padding-left: 44px;
+    padding-right: 44px;
+    top: 150px;
   }
 }
 
@@ -1909,9 +1945,16 @@ header .dropdown-menu .ti {
     display: none;
   }
 
-  #chat-input{
-    top: 80px;
-    bottom: 20px;
+  #chat-container {
+    height: 45vh;
+    padding: 8px;
+  }
+  #chat-input {
+    height: 40px;
+    padding-left: 42px;
+    padding-right: 42px;
+    top: 150px;
+    margin-bottom: 30px;
   }
 }
 
@@ -2034,9 +2077,16 @@ header .dropdown-menu .ti {
     display: none;
   }
 
-  #chat-input{
-    top: 80px;
-    bottom: 20px;
+  #chat-container {
+    height: 45vh;
+    padding: 8px;
+  }
+  #chat-input {
+    height: 40px;
+    padding-left: 42px;
+    padding-right: 42px;
+    top: 150px;
+    margin-bottom: 30px;
   }
 }
 
