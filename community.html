@@ -511,6 +511,9 @@
 
         <script> //community chat animation
             let amountOfColors = 18; // Or "participants"
+            const AUTO_DELETE_MS = 10000; // milliseconds before a chat line auto-deletes
+            const AUTO_DELETE_JITTER = 3000; // optional randomness added to auto-delete time
+            const FADE_OUT_MS = 500; // fade out duration
 
             let container = document.getElementById("chat-container");
             let lineWidth = 400;
@@ -545,7 +548,7 @@
                     container.appendChild(this.ele);
                 }
                 addLine() {
-                    let l = new Line();
+                    let l = new Line(this); // pass parent chat reference
                     this.lines.push(l);
                     this.ele.appendChild(l.ele.lineContainer);
                     return l;
@@ -563,7 +566,8 @@
                     }
                     this.addLine();
                     this.removeOldest();
-                    this.anim = setTimeout(() => this.loop(), Math.random() * 1300 + 180);
+                    /*this.anim = setTimeout(() => this.loop(), Math.random() * 1300 + 180);*/
+                    this.anim = setTimeout(() => this.loop(), 3000);
                 }
                 stopLoop() {
                     clearTimeout(this.anim);
@@ -572,7 +576,8 @@
             }
 
             class Line {
-                constructor() {
+                constructor(parentChat) {
+                    this.parentChat = parentChat || null;
                     this.pickColor();
                     this.pickName();
                     this.pickText();
@@ -658,6 +663,37 @@
                     ele.texts.forEach((n, i, arr) =>
                         setTimeout(() => (n.style.opacity = 1), 70 * (i + 3) + delay)
                     );
+                    // schedule auto-delete
+                    const ttl = AUTO_DELETE_MS + Math.floor(Math.random() * AUTO_DELETE_JITTER);
+                    this._autoDeleteTimeout = setTimeout(() => this.animateOutAndRemove(), ttl);
+                }
+
+                animateOutAndRemove() {
+                    // fade out visuals, then remove from DOM and parent lines array
+                    if (!this.ele || !this.ele.lineContainer) return;
+                    // clear any pending auto-delete to avoid double calls
+                    if (this._autoDeleteTimeout) {
+                        clearTimeout(this._autoDeleteTimeout);
+                        this._autoDeleteTimeout = null;
+                    }
+                    // start fade out
+                    this.ele.lineContainer.style.transition = `opacity ${FADE_OUT_MS}ms ease, max-height ${FADE_OUT_MS}ms ease, transform ${FADE_OUT_MS}ms ease`;
+                    this.ele.lineContainer.style.opacity = 0;
+                    this.ele.lineContainer.style.maxHeight = "0px";
+                    this.ele.lineContainer.style.transform = "translateX(-10px) scale(.98)";
+                    // remove child elements after fade
+                    setTimeout(() => {
+                        try {
+                            if (this.ele && this.ele.lineContainer && this.ele.lineContainer.parentNode) {
+                                this.ele.lineContainer.parentNode.removeChild(this.ele.lineContainer);
+                            }
+                            // remove from parentChat.lines array if possible
+                            if (this.parentChat && Array.isArray(this.parentChat.lines)) {
+                                const idx = this.parentChat.lines.indexOf(this);
+                                if (idx > -1) this.parentChat.lines.splice(idx, 1);
+                            }
+                        } catch (e) { /* ignore */ }
+                    }, FADE_OUT_MS + 10);
                 }
 
                 createElement() {
