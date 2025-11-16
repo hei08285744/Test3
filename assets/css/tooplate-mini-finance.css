@@ -1426,18 +1426,18 @@ header .dropdown-menu .ti {
 	 background-color: #383838;
 	 margin-right: 10px;
 }
- .body .name, .body .text {
+ .body .chat-name, .body .text {
 	 border-radius: 2px;
 	 background-color: #474747;
 	 height: 16px;
 }
- .name {
+ .chat-name {
 	 width: 100px;
 	 margin-bottom: 10px;
 	 position: relative;
 	 cursor: pointer;
 }
- .name:after {
+ .chat-name:after {
 	 content: '';
 	 display: block;
 	 border-radius: 2px;
@@ -1448,7 +1448,7 @@ header .dropdown-menu .ti {
 	 right: -60px;
 	 transition: 100ms;
 }
- .profile-img:hover + .body .name:after, .name:hover:after {
+ .profile-img:hover + .body .chat-name:after, .chat-name:hover:after {
 	 background-color: rgba(56, 56, 56, 1);
 	 width: 100px;
 	 right: -110px;
@@ -1488,7 +1488,7 @@ header .dropdown-menu .ti {
 	 border-radius: 6px;
 	 background-color: #333;
 }
- .profile-img, .name, .text, .img, .rich-body {
+ .profile-img, .chat-name, .text, .img, .rich-body {
 	 opacity: 0;
 	 transform: translateY(20px);
 	 transition: 200ms;
